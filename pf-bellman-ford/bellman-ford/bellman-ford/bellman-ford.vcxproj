@@ -22,8 +22,9 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{7c8a7bb2-61e3-4a19-ae86-4a3c90bf40ae}</ProjectGuid>
-    <RootNamespace>shortestpath</RootNamespace>
+    <RootNamespace>bellmanford</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>bellman-ford</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -139,7 +140,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="shortest-path.cpp" />
+    <ClCompile Include="builder.cpp" />
+    <ClCompile Include="graph.cpp" />
+    <ClCompile Include="bellman-ford.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="builder.h" />
+    <ClInclude Include="graph.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
