@@ -1,5 +1,5 @@
 # AI Toolset
-This repository houses a toolset containing essential Decision-Making and Pathfinding algorithms in their minimalist forms. These algorithms serve as foundational components for game AI development, enabling the creation of dynamic behaviours.
+This repository houses a toolset containing essential Decision-Making, Pathfinding and Traversal algorithms in their minimalist forms. These algorithms serve as foundational components for game AI development, enabling the creation of dynamic behaviours.
 
 ## Table of Contents
 ### Decision Making Algorithms
