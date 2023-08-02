@@ -9,7 +9,7 @@ This repository houses a toolset containing essential Decision-Making and Pathfi
 * [Hierarchical Task Network](dm-hierarchical-task-network/readme.md)
 * [Utility System](dm-utility-system)
 
-### Pathfinding Algorithms
+### Pathfinding & Traversal Algorithms
 * [A*](pf-a-star/readme.md)
 * [Bellman-Ford](pf-bellman-ford/readme.md)
 * [Breadth-First Search](pf-breadth-first-search/readme.md)
