@@ -18,3 +18,8 @@ Some common pitfalls of using the Breadth-First Search algorithm include:
 * Lack of Direction: BFS is a blind search algorithm that does not consider the direction or weight of edges, so it may not be optimal for specific applications like finding the minimum cost path.
 ## The Practice
 ### Sample Project
+This sample project structures a graph as in the diagram:
+
+![](bfs.png)
+
+The order of traversal is `0, 1, 2, 3, 4`.

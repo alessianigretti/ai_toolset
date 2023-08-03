@@ -18,3 +18,8 @@ Some common pitfalls of using the DFS algorithm include:
 * Lack of Optimal Solution: DFS does not guarantee the shortest path to a target node, making it less suitable for finding the optimal solution in certain applications.
 ## The Practice
 ### Sample Project
+This sample project structures a graph as in the diagram:
+
+![](dfs.png)
+
+The order of traversal is `0, 1, 2, 4, 3`.

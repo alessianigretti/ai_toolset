@@ -1,4 +1,4 @@
-# Behaviour Tree
+# Behavior Tree
 ## The Theory
 ### What is it?
 A Behavior Tree is a widely used AI architecture in game development and robotics to control the decision-making process of autonomous agents.
@@ -21,3 +21,10 @@ Some common pitfalls of using Behavior Trees include:
 * Decision Logic: Crafting an efficient and appropriate decision logic within the tree can be tricky, and poor design choices can result in suboptimal AI behavior.
 ## The Practice
 ### Sample Project
+This sample project structures a Behavior Tree as in the diagram:
+
+![](behaviour-tree.png)
+
+Running the tree with an initial Stamina value of 1 produces the outcome shown below:
+
+![](bt_demo.gif)

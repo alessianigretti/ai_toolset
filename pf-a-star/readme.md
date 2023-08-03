@@ -18,3 +18,8 @@ Some common pitfalls of using the A* algorithm include:
 * Tie-breaking: If multiple paths have the same f-value (cost from the start node to the goal through a given node), tie-breaking rules need to be well-defined to ensure consistency in the path selected.
 ## The Practice
 ### Sample Project
+This sample project structures a graph as in the diagram:
+
+![](a-star.png)
+
+The order of traversal from `a` to `f` is `a, c, d, e, f`.
