@@ -18,3 +18,10 @@ Some common pitfalls of using Utility AI include:
 * Computational Overhead: Calculating utilities for numerous actions can be computationally expensive, especially in complex environments with a large action space.
 ## The Practice
 ### Sample Project
+This sample project structures a Utility System as in the diagram:
+
+![](utility_ai.png)
+
+Running the tree with an initial state of `Hunger = 1`, `Thirst = 0.7`, `Tiredness = 0.3`, `Boredom = 0` produces the outcome shown below:
+
+![](utility_demo.gif)
