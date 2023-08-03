@@ -22,6 +22,6 @@ This sample project structures a Utility System as in the diagram:
 
 ![](utility_ai.png)
 
-Running the tree with an initial state of `Hunger = 1`, `Thirst = 0.7`, `Tiredness = 0.3`, `Boredom = 0` produces the outcome shown below:
+Running the system with an initial state of `Hunger = 1`, `Thirst = 0.7`, `Tiredness = 0.3`, `Boredom = 0` produces the outcome shown below:
 
 ![](utility_demo.gif)
