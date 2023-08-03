@@ -22,4 +22,4 @@ This sample project structures a graph as in the diagram:
 
 ![](a-star.png)
 
-The order of traversal is as below:
+The order of traversal from `a` to `f` is `a, c, d, e, f`.
