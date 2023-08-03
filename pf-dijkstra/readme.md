@@ -19,3 +19,10 @@ Some common pitfalls of using the Dijkstra algorithm include:
 * Memory Consumption: Dijkstra's algorithm requires storing distance values for all nodes, which can become memory-intensive in large graphs.
 ## The Practice
 ### Sample Project
+This sample project structures a graph as in the diagram:
+
+![](dijkstra.png)
+
+The order of traversal is as shown below:
+
+![](dijkstra_demo.png)
