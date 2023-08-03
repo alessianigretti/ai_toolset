@@ -18,3 +18,10 @@ Some common pitfalls of using the Bellman-Ford algorithm include:
 * Large Graphs: For very large graphs, Bellman-Ford's time complexity can be a significant drawback, and alternative algorithms with better time complexity may be preferred.
 ## The Practice
 ### Sample Project
+This sample project structures a graph as in the diagram:
+
+![](bellman-ford.png)
+
+The order of traversal is as shown below:
+
+![](bf_demo.png)
