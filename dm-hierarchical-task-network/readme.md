@@ -18,3 +18,10 @@ Some common pitfalls of using HTNs include:
 * Handling Uncertainty: HTNs may struggle to handle uncertainty or dynamic changes in the environment effectively, as their hierarchical nature may not accommodate real-time adaptability.
 ## The Practice
 ### Sample Project
+This sample project structures a HTN as in the diagram:
+
+![](htn.png)
+
+Running the tree with an initial Stamina value of 1 produces the outcome shown below:
+
+![](htn_demo.gif)
