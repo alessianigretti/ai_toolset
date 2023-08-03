@@ -21,3 +21,10 @@ Some common pitfalls of using FSMs include:
 * Inefficient Handling of Concurrent Events: Traditional FSMs might struggle to handle concurrent or simultaneous events, as they are designed for discrete state transitions.
 ## The Practice
 ### Sample Project
+This sample project structures a FSM as in the diagram:
+
+![](finite-state-machine.png)
+
+Running the FSM produces the outcome shown below:
+
+![](demo.gif)
