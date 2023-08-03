@@ -19,3 +19,10 @@ Some common pitfalls of using GOAP include:
 * Limited Real-Time Adaptation: GOAP plans are typically computed offline or at specific intervals, which can limit the agent's ability to adapt rapidly to rapidly changing situations.
 ## The Practice
 ### Sample Project
+This sample project structures a GOAP as in the diagram:
+
+![](goap.png)
+
+Running the planner with an initial state of `IsHungry = true` and a goal state of `IsHungry = false` produces the outcome shown below:
+
+![](goap_demo.gif)
