@@ -2,13 +2,14 @@
 //
 
 #include <iostream>
+#include <memory>
 #include "builder.h"
 
 using namespace std;
 
 int main()
 {
-    builder* sp_builder = new builder();
+    shared_ptr<builder> sp_builder = shared_ptr<builder>(new builder());
     
     sp_builder->build_and_run();
 }

@@ -3,6 +3,7 @@
 #include <list>
 #include <vector>
 #include <string>
+#include <memory>
 
 using namespace std;
 
@@ -22,12 +23,12 @@ class edge
 {
 public:
 
-	edge(node* from, node* to, int distance)
+	edge(const shared_ptr<node>& from, const shared_ptr<node>& to, int distance)
 		: from(from), to(to), distance(distance) {};
 
-	node* from;
+	shared_ptr<node> from;
 
-	node* to;
+	shared_ptr<node> to;
 
 	int distance;
 };
@@ -36,14 +37,14 @@ class graph
 {
 public:
 
-	graph(vector<node*> vertices, vector<edge*> edges);
+	graph(const vector<shared_ptr<node>>& vertices, const vector<shared_ptr<edge>>& edges);
 
 	void run();
 
 private:
 
-	vector<node*> vertices;
+	vector<shared_ptr<node>> vertices;
 
-	vector<edge*> edges;
+	vector<shared_ptr<edge>> edges;
 };
 

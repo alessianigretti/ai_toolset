@@ -4,14 +4,14 @@
 
 using namespace std;
 
-graph::graph(vector<node*> vertices, vector<edge*> edges)
+graph::graph(const vector<shared_ptr<node>>& vertices, const vector<shared_ptr<edge>>& edges)
 	: vertices(vertices), edges(edges)
 {
 }
 
 void graph::run()
 {
-	for (node* vertex : vertices)
+	for (shared_ptr<node>& vertex : vertices)
 	{
 		vertex->total_distance = INT_MAX;
 	}
@@ -26,7 +26,7 @@ void graph::run()
 
 		for (int e = 0; e < edges.size(); e++)
 		{
-			edge* edge = edges[e];
+			shared_ptr<edge> edge = edges[e];
 
 			if (edge->from->total_distance != INT_MAX &&
 				edge->from->total_distance + edge->distance < edge->to->total_distance)
@@ -42,7 +42,7 @@ void graph::run()
 	{
 		for (int e = 0; e < edges.size(); e++)
 		{
-			edge* edge = edges[e];
+			shared_ptr<edge> edge = edges[e];
 
 			if (edge->from->total_distance != INT_MAX &&
 				edge->from->total_distance + edge->distance < edge->to->total_distance)
@@ -52,7 +52,7 @@ void graph::run()
 		}
 	}
 
-	for (node* vertex : vertices)
+	for (const shared_ptr<node>& vertex : vertices)
 	{
 		cout << "Node: " << vertex->id << ", Final distance: " << vertex->total_distance << endl;
 	}
