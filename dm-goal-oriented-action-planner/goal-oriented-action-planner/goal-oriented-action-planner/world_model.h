@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include "action.h"
+#include <memory>
 
 using namespace std;
 
@@ -29,14 +30,14 @@ class world_model
 {
 public:
 
-	void apply_action(action* action);
+	void apply_action(const shared_ptr<action>& action);
 
-	bool update_if_contained(state* effect);
+	bool update_if_contained(const shared_ptr<state>& effect);
 
-	bool is_goal_fulfilled(state* goal);
+	bool is_goal_fulfilled(const shared_ptr<state>& goal);
 
 	void clear();
 
-	vector<state*> world_state;
+	vector<shared_ptr<state>> world_state;
 };
 

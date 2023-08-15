@@ -8,7 +8,7 @@ void action::describe_action()
     cout << description << endl;
     cout << "Current state:" << endl;
     
-    for (state* state : effects)
+    for (shared_ptr<state> state : effects)
     {
         cout << "- " << state->description << " " << endl;
     }
@@ -16,12 +16,12 @@ void action::describe_action()
     cout << endl;
 }
 
-state* action::get_condition()
+shared_ptr<state> action::get_condition()
 {
     return condition;
 }
 
-vector<state*> action::get_effects()
+vector<shared_ptr<state>> action::get_effects()
 {
     return effects;
 }

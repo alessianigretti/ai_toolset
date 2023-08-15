@@ -9,7 +9,7 @@ int main()
     cout << "Goal Oriented Action Planner Demo" << endl;
     system("pause");
 
-    builder* goap_builder = new builder();
+    shared_ptr<builder> goap_builder = shared_ptr<builder>(new builder());
     goap_builder->build_goap();
 
     cout << "Planner built." << endl << endl;

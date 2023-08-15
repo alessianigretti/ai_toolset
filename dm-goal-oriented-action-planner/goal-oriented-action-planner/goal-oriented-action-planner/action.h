@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <memory>
 #include "world_model.h"
 
 struct state;
@@ -10,7 +11,7 @@ using namespace std;
 class action
 {
 public:
-	action(string description, state* condition, vector<state*> effects)
+	action(string description, shared_ptr<state> condition, vector<shared_ptr<state>> effects)
 	{
 		this->description = description;
 		this->condition = condition;
@@ -19,16 +20,16 @@ public:
 
 	void describe_action();
 
-	state* get_condition();
+	shared_ptr<state> get_condition();
 
-	vector<state*> get_effects();
+	vector<shared_ptr<state>> get_effects();
 
 private:
 
 	string description;
 
-	state* condition;
+	shared_ptr<state> condition;
 
-	vector<state*> effects;
+	vector<shared_ptr<state>> effects;
 };
 

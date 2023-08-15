@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "world_model.h"
+#include <memory>
 
 class action;
 
@@ -12,26 +13,26 @@ public:
 
 	void build_goap();
 
-	vector<action*> plan_action();
+	vector<shared_ptr<action>> plan_action();
 
-	state* get_initial_state();
+	shared_ptr<state> get_initial_state();
 
-	state* get_final_state();
+	shared_ptr<state> get_final_state();
 
 private:
 
-	action* get_action_fulfilling_goal(state goal_state);
+	shared_ptr<action> get_action_fulfilling_goal(const shared_ptr<state>& goal_state);
 
-	bool does_fulfill_goal(state goal_state, action* action);
+	bool does_fulfill_goal(const shared_ptr<state>& goal_state, const shared_ptr<action>& action);
 
-	vector<action*> actions;
+	vector<shared_ptr<action>> actions;
 	
-	state initial_state;
+	shared_ptr<state> initial_state;
 
-	state final_state;
+	shared_ptr<state> final_state;
 
-	vector<action*> reusable_plan;
+	vector<shared_ptr<action>> reusable_plan;
 
-	world_model* reusable_world_model;
+	shared_ptr<world_model> reusable_world_model;
 };
 

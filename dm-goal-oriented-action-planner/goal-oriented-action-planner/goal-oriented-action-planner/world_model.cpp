@@ -1,8 +1,8 @@
 #include "world_model.h"
 
-void world_model::apply_action(action* action)
+void world_model::apply_action(const shared_ptr<action>& action)
 {
-    for (state* effect : action->get_effects())
+    for (shared_ptr<state> effect : action->get_effects())
     {
         if (!update_if_contained(effect))
         {
@@ -11,9 +11,9 @@ void world_model::apply_action(action* action)
     }
 }
 
-bool world_model::update_if_contained(state* effect)
+bool world_model::update_if_contained(const shared_ptr<state>& effect)
 {
-    for (state* existing_state : world_state)
+    for (shared_ptr<state> existing_state : world_state)
     {
         if (existing_state->state_type == effect->state_type)
         {
@@ -25,9 +25,9 @@ bool world_model::update_if_contained(state* effect)
     return false;
 }
 
-bool world_model::is_goal_fulfilled(state* goal)
+bool world_model::is_goal_fulfilled(const shared_ptr<state>& goal)
 {
-    for (state* existing_state : world_state)
+    for (shared_ptr<state> existing_state : world_state)
     {
         if (existing_state->state_type == goal->state_type &&
             existing_state->value == goal->value)
