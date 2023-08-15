@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <memory>
 #include "action.h"
 #include "state.h"
 
@@ -20,7 +21,7 @@ class reasoner
 {
 public:
 
-	reasoner(agent* acting_agent, vector<action*> executable_actions)
+	reasoner(shared_ptr<agent> acting_agent, const vector<shared_ptr<action>>& executable_actions)
 	{
 		this->acting_agent = acting_agent;
 		this->executable_actions = executable_actions;
@@ -30,12 +31,12 @@ public:
 
 private:
 
-	float score(action* action);
+	float score(const shared_ptr<action>& action);
 
-	void select(action* action);
+	void select(const shared_ptr<action>& action);
 
-	agent* acting_agent;
+	shared_ptr<agent> acting_agent;
 
-	vector<action*> executable_actions;
+	vector<shared_ptr<action>> executable_actions;
 };
 

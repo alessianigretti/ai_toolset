@@ -3,6 +3,7 @@
 #include "state.h"
 #include <string>
 #include <vector>
+#include <memory>
 
 using namespace std;
 
@@ -10,14 +11,14 @@ struct action
 {
 public:
 
-	action(vector<consideration*> considerations, vector<state*> effects, string description)
+	action(const vector<shared_ptr<consideration>>& considerations, const vector<shared_ptr<state>>& effects, string description)
 		: considerations(considerations), effects(effects), description(description)
 	{
 	}
 
-	const vector<consideration*> considerations;
+	const vector<shared_ptr<consideration>> considerations;
 
-	const vector<state*> effects;
+	const vector<shared_ptr<state>> effects;
 
 	const string description;
 };

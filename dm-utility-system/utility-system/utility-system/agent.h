@@ -9,19 +9,19 @@ struct agent
 {
 public:
 
-	agent(vector<state*> states)
+	agent(const vector<shared_ptr<state>>& states)
 		: states(states)
 	{
 	}
 
-	void modify_or_add_state(state* new_state);
+	void modify_or_add_state(const shared_ptr<state>& new_state);
 
-	vector<state*> get_states();
+	vector<shared_ptr<state>> get_states();
 
 	void describe_state();
 
 private:
 
-	vector<state*> states;
+	vector<shared_ptr<state>> states;
 };
 

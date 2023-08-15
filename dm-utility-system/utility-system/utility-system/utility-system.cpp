@@ -7,8 +7,8 @@
 
 int main()
 {
-    builder* utility_builder = new builder();
-    reasoner* reasoner = utility_builder->build();
+    shared_ptr<builder> utility_builder = shared_ptr<builder>(new builder());
+    shared_ptr<reasoner> reasoner = utility_builder->build();
 
     while (true)
     {

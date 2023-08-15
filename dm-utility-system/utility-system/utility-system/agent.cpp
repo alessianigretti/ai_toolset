@@ -2,9 +2,9 @@
 #include "state.h"
 #include <iostream>
 
-void agent::modify_or_add_state(state* new_state)
+void agent::modify_or_add_state(const shared_ptr<state>& new_state)
 {
-	for (state* agent_state : states)
+	for (shared_ptr<state>& agent_state : states)
 	{
 		if (new_state->attribute == agent_state->attribute)
 		{
@@ -17,7 +17,7 @@ void agent::modify_or_add_state(state* new_state)
 	states.push_back(new_state);
 }
 
-vector<state*> agent::get_states()
+vector<shared_ptr<state>> agent::get_states()
 {
 	return states;
 }
@@ -26,7 +26,7 @@ void agent::describe_state()
 {
 	cout << "Current agent state:" << endl;
 
-	for (state* state : states)
+	for (const shared_ptr<state>& state : states)
 	{
 		cout << "- " << state->get_description() << " (score " << state->get_value() << ")" << endl;
 	}

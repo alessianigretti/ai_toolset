@@ -6,9 +6,9 @@
 void reasoner::run()
 {
     float highest_score = 0.f;
-    action* best_action = nullptr;
+    shared_ptr<action> best_action = nullptr;
 
-    for (action* action : executable_actions)
+    for (const shared_ptr<action>& action : executable_actions)
     {
         float action_score = score(action);
         
@@ -25,7 +25,7 @@ void reasoner::run()
     }
 }
 
-float reasoner::score(action* action)
+float reasoner::score(const shared_ptr<action>& action)
 {
     if (action->considerations.empty())
     {
@@ -34,9 +34,9 @@ float reasoner::score(action* action)
 
     float score = 0.;
 
-    for (consideration* cons : action->considerations)
+    for (const shared_ptr<consideration>& cons : action->considerations)
     {
-        for (state* state : acting_agent->get_states())
+        for (const shared_ptr<state>& state : acting_agent->get_states())
         {
             if (state->attribute == cons->attribute)
             {
@@ -95,11 +95,11 @@ float reasoner::score(action* action)
     return score;
 }
 
-void reasoner::select(action* action)
+void reasoner::select(const shared_ptr<action>& action)
 {
     cout << endl << "Selected action: " << action->description << endl << endl;
 
-    for (state* effect : action->effects)
+    for (const shared_ptr<state>& effect : action->effects)
     {
         acting_agent->modify_or_add_state(effect);
     }
