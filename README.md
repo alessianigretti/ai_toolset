@@ -7,7 +7,7 @@ This repository houses a toolset containing essential Decision-Making, Pathfindi
 * [Finite State Machine](dm-finite-state-machine/readme.md)
 * [Goal-Oriented Action Planning](dm-goal-oriented-action-planner/readme.md)
 * [Hierarchical Task Network](dm-hierarchical-task-network/readme.md)
-* [Utility System](dm-utility-system)
+* [Utility System](dm-utility-system/readme.md)
 
 ### Pathfinding & Traversal Algorithms
 * [A*](pf-a-star/readme.md)
