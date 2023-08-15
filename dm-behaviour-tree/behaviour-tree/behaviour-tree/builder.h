@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "node.h"
+#include <memory>
 
 using namespace std; 
 
@@ -14,6 +15,6 @@ public:
 
 private:
 	
-	node* root_node;
+	shared_ptr<node> root_node;
 };
 

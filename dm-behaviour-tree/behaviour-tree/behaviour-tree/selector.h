@@ -1,11 +1,14 @@
 #pragma once
 #include "node.h"
+#include <memory>
+
+using namespace std;
 
 class selector : public node
 {
 public:
 
-	selector(vector<node*> children, string description);
+	selector(const vector<shared_ptr<node>>& children, string description);
 
 	virtual bool execute(float& input) override;
 };

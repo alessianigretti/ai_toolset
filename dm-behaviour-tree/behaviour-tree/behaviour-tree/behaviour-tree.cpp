@@ -2,12 +2,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "builder.h"
+#include <memory>
 
 using namespace std;
 
 int main()
 {
-	builder* tree_builder = new builder();
+	shared_ptr<builder> tree_builder = shared_ptr<builder>(new builder());
 	tree_builder->build_tree();
 
 	float current_stamina = 1.0f;

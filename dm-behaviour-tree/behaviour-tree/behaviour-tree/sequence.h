@@ -5,7 +5,7 @@ class sequence : public node
 {
 public:
 
-	sequence(vector<node*> children, string description);
+	sequence(const vector<shared_ptr<node>>& children, string description);
 
 	virtual bool execute(float& input) override;
 };

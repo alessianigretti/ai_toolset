@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "decorator.h"
+#include <memory>
 
 using namespace std;
 
@@ -10,13 +11,13 @@ class node
 {
 public:
 
-	vector<node*> get_children();
+	vector<shared_ptr<node>> get_children();
 
 	void describe_node();
 
-	void add_decorator(decorator* decorator);
+	void add_decorator(const shared_ptr<decorator>& decorator);
 
-	vector<decorator*> get_decorators();
+	vector<shared_ptr<decorator>> get_decorators();
 
 	virtual bool execute(float& input) = 0;
 
@@ -24,8 +25,8 @@ protected:
 
 	string description;
 
-	vector<node*> children;
+	vector<shared_ptr<node>> children;
 
-	vector<decorator*> decorators;
+	vector<shared_ptr<decorator>> decorators;
 };
 

@@ -1,6 +1,9 @@
 #include "sequence.h"
+#include <memory>
 
-sequence::sequence(vector<node*> children, string description)
+using namespace std;
+
+sequence::sequence(const vector<shared_ptr<node>>& children, string description)
 {
 	this->children = children;
 	this->description = description;
@@ -10,7 +13,7 @@ bool sequence::execute(float& input)
 {
 	describe_node();
 
-	for (node* child : children)
+	for (shared_ptr<node> child : children)
 	{
 		if (!child->execute(input))
 		{
