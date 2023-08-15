@@ -1,14 +1,15 @@
 #include "graph.h"
 #include <iostream>
+#include <memory>
 
 using namespace std;
 
-void graph::run(vertex* start, vertex* end)
+void graph::run(const shared_ptr<vertex>& start, const shared_ptr<vertex>& end)
 {
 	priority_queue<vertex*, vector<vertex*>, cmp> open;
 	priority_queue<vertex*, vector<vertex*>, cmp> closed;
 
-	open.push(start);
+	open.push(start.get());
 
 	while (!open.empty())
 	{
@@ -18,7 +19,7 @@ void graph::run(vertex* start, vertex* end)
 
 		closed.push(current_vertex);
 
-		if (current_vertex == end)
+		if (current_vertex == end.get())
 		{
 			while (current_vertex != nullptr)
 			{
@@ -30,7 +31,7 @@ void graph::run(vertex* start, vertex* end)
 			return;
 		}
 
-		for (edge* connected_edge : current_vertex->edges)
+		for (const shared_ptr<edge>& connected_edge : current_vertex->edges)
 		{
 			if (contains(closed, connected_edge->to))
 			{
@@ -39,7 +40,7 @@ void graph::run(vertex* start, vertex* end)
 
 			if (!contains(open, connected_edge->to))
 			{
-				open.push(connected_edge->to);
+				open.push(connected_edge->to.get());
 
 				connected_edge->to->parent = current_vertex;
 
@@ -63,18 +64,18 @@ void graph::run(vertex* start, vertex* end)
 				}
 			}
 
-			open.push(connected_edge->to);
+			open.push(connected_edge->to.get());
 		}
 	}
 }
 
-bool graph::contains(priority_queue<vertex*, vector<vertex*>, cmp> queue, vertex* element_to_find)
+bool graph::contains(const priority_queue<vertex*, vector<vertex*>, cmp>& queue, const shared_ptr<vertex>& element_to_find)
 {
 	priority_queue<vertex*, vector<vertex*>, cmp> temp_queue = priority_queue<vertex*, vector<vertex*>, cmp>(queue);
 
 	while (!temp_queue.empty())
 	{
-		if (temp_queue.top() == element_to_find)
+		if (temp_queue.top() == element_to_find.get())
 		{
 			return true;
 		}

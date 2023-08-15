@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <queue>
+#include <memory>
 
 using namespace std;
 
@@ -13,7 +14,7 @@ public:
 	vertex(string id)
 		: id(id) {};
 
-	void add_edge(edge* connecting_edge)
+	void add_edge(const shared_ptr<edge>& connecting_edge)
 	{
 		edges.push_back(connecting_edge);
 	}
@@ -28,7 +29,7 @@ public:
 
 	vertex* parent;
 
-	vector<edge*> edges;
+	vector<shared_ptr<edge>> edges;
 };
 
 struct cmp {
@@ -45,10 +46,10 @@ class edge
 {
 public:
 
-	edge(vertex* to, int distance)
+	edge(shared_ptr<vertex> to, int distance)
 		: to(to), distance(distance) {};
 
-	vertex* to;
+	shared_ptr<vertex> to;
 
 	int distance;
 };
@@ -57,8 +58,8 @@ class graph
 {
 public:
 
-	void run(vertex* start, vertex* end);
+	void run(const shared_ptr<vertex>& start, const shared_ptr<vertex>& end);
 
-	bool contains(priority_queue<vertex*, vector<vertex*>, cmp> queue, vertex* element_to_find);
+	bool contains(const priority_queue<vertex*, vector<vertex*>, cmp>& queue, const shared_ptr<vertex>& element_to_find);
 };
 
