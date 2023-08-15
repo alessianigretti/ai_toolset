@@ -3,17 +3,17 @@
 
 using namespace std;
 
-graph::graph(vector<vertex*> vertices)
+graph::graph(const vector<shared_ptr<vertex>>& vertices)
 	: vertices(vertices)
 {
 }
 
-void graph::run(vertex* start)
+void graph::run(const shared_ptr<vertex>& start)
 {
-	auto cmp = [](vertex* left, vertex* right) { return left->total_distance > right->total_distance; };
-	priority_queue<vertex*, vector<vertex*>, decltype(cmp)> queue(cmp);
+	auto cmp = [](shared_ptr<vertex> left, shared_ptr<vertex> right) { return left->total_distance > right->total_distance; };
+	priority_queue<shared_ptr<vertex>, vector<shared_ptr<vertex>>, decltype(cmp)> queue(cmp);
 
-	for (vertex* v : vertices)
+	for (shared_ptr<vertex> v : vertices)
 	{
 		v->total_distance = INT_MAX;
 
@@ -26,13 +26,13 @@ void graph::run(vertex* start)
 
 	while (!queue.empty())
 	{
-		vertex* u = queue.top();
+		shared_ptr<vertex> u = queue.top();
 
 		queue.pop();
 
 		u->visited = true;
 
-		for (edge* connected_edge : u->edges)
+		for (shared_ptr<edge> connected_edge : u->edges)
 		{
 			if (connected_edge->to->visited)
 			{

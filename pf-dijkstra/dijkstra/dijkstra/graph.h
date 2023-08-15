@@ -1,6 +1,7 @@
 #pragma once
 #include <queue>
 #include <string>
+#include <memory>
 
 using namespace std;
 
@@ -13,7 +14,7 @@ public:
 	vertex(string id)
 		: id(id) {};
 
-	void add_edge(edge* connecting_edge)
+	void add_edge(const shared_ptr<edge>& connecting_edge)
 	{
 		edges.push_back(connecting_edge);
 	}
@@ -24,17 +25,17 @@ public:
 
 	bool visited;
 
-	vector<edge*> edges;
+	vector<shared_ptr<edge>> edges;
 };
 
 class edge
 {
 public:
 
-	edge(vertex* to, int weight)
+	edge(const shared_ptr<vertex>& to, int weight)
 		: to(to), weight(weight) {};
 
-	vertex* to;
+	shared_ptr<vertex> to;
 
 	int weight;
 };
@@ -43,12 +44,12 @@ class graph
 {
 public:
 
-	graph(vector<vertex*> vertices);
+	graph(const vector<shared_ptr<vertex>>& vertices);
 
-	void run(vertex* start);
+	void run(const shared_ptr<vertex>& start);
 
 private:
 
-	vector<vertex*> vertices;
+	vector<shared_ptr<vertex>> vertices;
 };
 
