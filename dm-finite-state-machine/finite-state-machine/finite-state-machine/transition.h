@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <memory>
 
 class state;
 
@@ -14,15 +15,15 @@ public:
         this->description = description;
     }
 
-    void set_target_state(state* target_state);
+    void set_target_state(const shared_ptr<state>& target_state);
 
-    state* get_target_state();
+    shared_ptr<state> get_target_state();
 
     void describe_transition();
 
 private:
 
-    state* target_state;
+    shared_ptr<state> target_state;
 
     string description;
 };

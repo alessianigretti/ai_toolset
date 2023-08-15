@@ -1,13 +1,16 @@
 #include "state.h"
 #include <iostream>
+#include <memory>
 
-state::state(vector<transition*> transitions, string description)
+using namespace std;
+
+state::state(const vector<shared_ptr<transition>>& transitions, string description)
 {
     this->transitions = transitions;
     this->description = description;
 }
 
-vector<transition*> state::get_transitions()
+vector<shared_ptr<transition>> state::get_transitions()
 {
     return transitions;
 }

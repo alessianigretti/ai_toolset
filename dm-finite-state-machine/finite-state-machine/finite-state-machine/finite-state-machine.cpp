@@ -15,8 +15,8 @@ int main()
 {
     cout << "Finite State Machine Demo" << endl;
 
-    builder* b = new builder();
-    state* current_state = b->build_fsm();
+    shared_ptr<builder> b = shared_ptr<builder>(new builder());
+    shared_ptr<state> current_state = b->build_fsm();
 
     while (true)
     {

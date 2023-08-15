@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <memory>
 
 class transition;
 
@@ -10,15 +11,15 @@ class state
 {
 public:
 
-    state(vector<transition*> transitions, string description);
+    state(const vector<shared_ptr<transition>>& transitions, string description);
 
-    vector<transition*> get_transitions();
+    vector<shared_ptr<transition>> get_transitions();
 
     void describe_state();
 
 private:
 
-    vector<transition*> transitions;
+    vector<shared_ptr<transition>> transitions;
 
     string description;
 };

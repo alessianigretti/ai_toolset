@@ -5,6 +5,6 @@ class builder
 {
 public:
 
-    state* build_fsm();
+    shared_ptr<state> build_fsm();
 };
 
