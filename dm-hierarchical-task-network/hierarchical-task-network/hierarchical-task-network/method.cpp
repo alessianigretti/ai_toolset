@@ -1,6 +1,6 @@
 #include "method.h"
 
-method::method(vector<operation*> conditions, vector<task*> subtasks, string description)
+method::method(const vector<shared_ptr<operation>>& conditions, const vector<shared_ptr<task>>& subtasks, string description)
     : conditions(conditions), subtasks(subtasks), description(description)
 {
 }
@@ -12,7 +12,7 @@ bool method::test_conditions(const float& input)
         return true;
     }
 
-    for (operation* op : conditions)
+    for (const shared_ptr<operation>& op : conditions)
     {
         switch (op->get_operation_type())
         {
@@ -42,7 +42,7 @@ bool method::test_conditions(const float& input)
     return true;
 }
 
-vector<task*> method::get_subtasks()
+vector<shared_ptr<task>> method::get_subtasks()
 {
     return subtasks;
 }

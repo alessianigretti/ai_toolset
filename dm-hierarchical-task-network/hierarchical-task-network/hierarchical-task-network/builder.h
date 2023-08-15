@@ -1,5 +1,6 @@
 #pragma once
 #include <stack>
+#include <memory>
 #include "task.h"
 
 using namespace std;
@@ -10,10 +11,10 @@ public:
 
 	void build_htn();
 
-	vector<task*> run(float& input);
+	vector<shared_ptr<task>> run(float& input);
 
 private:
 
-	stack<task*> tasks_to_process;
+	stack<shared_ptr<task>> tasks_to_process;
 };
 

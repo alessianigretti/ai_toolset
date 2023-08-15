@@ -2,25 +2,26 @@
 #include "task.h"
 #include <vector>
 #include <string>
+#include <memory>
 #include "operation.h"
 
 class method
 {
 public:
 	
-	method(vector<operation*> conditions, vector<task*> subtasks, string description);
+	method(const vector<shared_ptr<operation>>& conditions, const vector<shared_ptr<task>>& subtasks, string description);
 
 	bool test_conditions(const float& input);
 
-	vector<task*> get_subtasks();
+	vector<shared_ptr<task>> get_subtasks();
 
 	string get_description();
 
 private:
 
-	vector<task*> subtasks;
+	vector<shared_ptr<task>> subtasks;
 
-	vector<operation*> conditions;
+	vector<shared_ptr<operation>> conditions;
 
 	string description;
 };

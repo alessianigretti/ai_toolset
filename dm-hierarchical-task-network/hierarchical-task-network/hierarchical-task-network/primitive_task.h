@@ -17,7 +17,7 @@ public:
 
 private:
 
-	operation* condition;
+	shared_ptr<operation> condition;
 
 	float effect;
 };

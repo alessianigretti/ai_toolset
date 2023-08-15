@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <memory>
 #include "method.h"
 #include "task.h"
 
@@ -10,14 +11,14 @@ class compound_task : public task
 {
 public:
 	
-	compound_task(vector<method*> methods, string description);
+	compound_task(const vector<shared_ptr<method>>& methods, string description);
 
-	vector<method*> get_methods();
+	vector<shared_ptr<method>> get_methods();
 
-	void describe_compound(method* method);
+	void describe_compound(const shared_ptr<method>& method);
 
 private:
 
-	vector<method*> methods;
+	vector<shared_ptr<method>> methods;
 };
 

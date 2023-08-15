@@ -2,11 +2,14 @@
 //
 
 #include <iostream>
+#include <memory>
 #include "builder.h"
+
+using namespace std;
 
 int main()
 {
-    builder* htn_builder = new builder();
+    shared_ptr<builder> htn_builder = shared_ptr<builder>(new builder());
 
     float current_stamina = 1.f;
 
@@ -14,7 +17,7 @@ int main()
     {
         htn_builder->build_htn();
         
-        vector<task*> final_plan = htn_builder->run(current_stamina);
+        vector<shared_ptr<task>> final_plan = htn_builder->run(current_stamina);
 
         cout << endl << "Press Enter to run again..." << endl;
 
